@@ -1,0 +1,37 @@
+<div class="vaulted-relic-display"><mat-checkbox
+  [(ngModel)]="showVaulted">
+  Show Vaulted Relics
+  </mat-checkbox></div>
+<div class="component-blueprint-container" *ngFor="let component of buildObject.getAllRelicDerivedComponents()">
+  <app-recipe [recipe]="component" [displayCost]="false"></app-recipe>
+  <div *ngIf="marketAveragePriceMap && getMarketPrice(component) > 0" class="market-price">
+    <h3>Market</h3>
+    <div class="median">
+      <span>30-Day Median Price: </span>
+      <span class="price">{{ getMarketPrice(component) }}p</span>
+    </div>
+  </div>
+  <div *ngIf="component.relicDrops && component.relicDrops.length > 0" class="relics">
+    <h3>Relics</h3>
+    <div class="table-container">
+      <table mat-table [dataSource]="getRelicData(component.relicDrops)">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Relic Name</th>
+          <td mat-cell *matCellDef="let drop"> {{getFormattedName(drop)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dropChance">
+          <th mat-header-cell *matHeaderCellDef>Drop% (intact/exceptional/flawless/radiant)</th>
+          <td mat-cell *matCellDef="let drop"> {{getFormattedDropChance(drop)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>Recommended Relic Drop Location</th>
+          <td mat-cell *matCellDef="let drop"> {{getFormattedRelicLocation(drop)}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="['name', 'dropChance', 'location']; sticky: true"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: ['name', 'dropChance', 'location']"
+            [ngClass]="{selected: activeRelicName == myRowData.name}"
+            (click)="selectRelic(myRowData)"></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="recipe-container">
+  <div class="icon">
+    <img [src]="recipe.getImageUrl()">
+  </div>
+
+  <div class="recipe-display">
+    <div class="name">
+      {{recipe.name}}
+    </div>
+
+    <div class="build-cost-display" *ngIf="displayCost">
+      <span class="recipe-cost">
+
+        <div> Cost: </div>
+        <div class="icon-container">
+          <img [src]="getCreditIconUrl()">
+        </div>
+        <div>{{recipe.buildPrice}} </div>
+
+      </span>
+      <span class="recipe-time">
+        Time: {{recipe.buildTime / 3600}}h
+      </span>
+      <span class="recipe-rush">
+        <div> Rush: </div>
+        <div class="icon-container">
+          <img [src]="getPlatinumIconUrl()">
+        </div>
+        <div>{{recipe.skipBuildTimePrice}}</div>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+
+<div class="search-container">
+  <!--<div class="selection" *ngIf="buildItem">-->
+    <!--<div class="selection-icon">-->
+      <!--<img [src]="'https://cdn.warframestat.us/img/' + buildItem.imageName">-->
+    <!--</div>-->
+    <!--<div class="selection-name">-->
+      <!--{{buildItem.name}}-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="search">
+    <form [formGroup]="form">
+      <mat-form-field class="full-width">
+        <input autocomplete="off" matInput
+               formControlName="searchString" placeholder="Search" [value]="''">
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="results" *ngIf="getSearchMatches().length > 0">
+    <ng-container *ngFor="let item of getSearchMatches(); let isLast = last;" >
+      <div (click)="setActiveBuildObject(item)" class="search-container">
+        <div class="selection" *ngIf="buildItem">
+          <div class="selection-icon">
+            <img [src]="'https://cdn.warframestat.us/img/' + item.imageName">
+          </div>
+          <div class="selection-name">
+            {{item.name}}
+          </div>
+        </div>
+        <mat-divider *ngIf="!isLast"></mat-divider>
+      </div>
+    </ng-container>
+  </div>
+</div>

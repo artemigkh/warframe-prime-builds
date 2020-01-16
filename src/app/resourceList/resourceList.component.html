@@ -1,0 +1,7 @@
+<div class="resource-list">
+  <app-resource *ngFor="let resource of getSortedResourceList(); trackBy: trackByFn"
+                [resource]="resource"
+                [matTooltip]="resource.description"
+                >
+  </app-resource>
+</div>

@@ -1,0 +1,56 @@
+.no-relic-info {
+  margin-top: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+.relic-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .relic-header {
+    margin-left: 25px;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .icon {
+      height: 100%;
+      img {
+        object-fit: contain;
+        display: block;
+
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    .name {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 26px;
+    }
+  }
+
+  .table-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    overflow: auto;
+    table {
+      width: 100%;
+
+      .mat-header-row {
+        height: 20px;
+      }
+
+      .mat-row {
+        height: 30px;
+      }
+
+    }
+  }
+}

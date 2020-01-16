@@ -1,0 +1,33 @@
+.resource-display {
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+
+  .icon {
+    width: 90px;
+    img {
+      object-fit: contain;
+      display: block;
+
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .name {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .quantity-required {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 300;
+    color: #6d6d6d;
+  }
+}
