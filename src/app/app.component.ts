@@ -13,11 +13,11 @@ export class AppComponent {
   activeRelic: WarframeRelicDrop;
 
   constructor() {
-    this.buildObject = new WarframeRecipe(WarframeItems.itemMap['/Lotus/Weapons/Tenno/Pistols/PrimeLex/PrimeLex']);
-    console.log(WarframeItems.itemMap['/Lotus/Powersuits/Cowgirl/MesaPrime']);
-    console.log(this.buildObject);
-    console.log(this.buildObject.getAllRelicDerivedComponents());
-    // console.log(new WarframeRecipe(WarframeItems.itemMap['/Lotus/Weapons/Tenno/Akimbo/AkLexPrimePistols']));
+    this.buildObject = new WarframeRecipe(WarframeItems.itemMap['/Lotus/Powersuits/Cowgirl/MesaPrime']);
+    // console.log(WarframeItems.itemMap['/Lotus/Powersuits/Cowgirl/MesaPrime']);
+    // console.log(this.buildObject);
+    // console.log(this.buildObject.getAllRelicDerivedComponents());
+    // // console.log(new WarframeRecipe(WarframeItems.itemMap['/Lotus/Weapons/Tenno/Akimbo/AkLexPrimePistols']));
   }
 
   setActiveBuildObject(uniqueName: string) {
